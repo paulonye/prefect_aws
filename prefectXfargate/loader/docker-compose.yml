@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    hostname: postgres
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_DB=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+
+  loader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: loader
+    volumes:
+      - .:/opt/loader
+    entrypoint:
+      - python
+      - loader.py
+  
+      
+
