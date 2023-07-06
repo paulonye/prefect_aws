@@ -8,9 +8,10 @@ def read_data(file_locator: str) -> None:
     '''Load data into the transactions table of a postgres datbase
        Input: File Directory''' 
 
-    engine = create_engine('postgresql://username:password@host:port/database_name')
+    engine = create_engine('postgresql://root:root@localhost:5432/root')
     df = pd.read_csv(file_locator)
-    df.to_sql(engine, table_name = 'transactions', index=False)
+    df = df[1:]
+    df.to_sql('transactions', engine, if_exists='replace', index=False)
     print('Loaded Data into DB!')
 
 if __name__ == '__main__':
