@@ -23,6 +23,6 @@ services:
     entrypoint:
       - python
       - loader.py
-  
-      
-
+volumes:
+  postgres_data:
+    driver: local
