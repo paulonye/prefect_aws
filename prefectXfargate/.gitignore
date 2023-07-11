@@ -1,0 +1,5 @@
+env
+ingestion/__pycache__
+loader/__pycache__
+transform/__pycache__
+data.csv
