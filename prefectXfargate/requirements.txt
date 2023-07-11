@@ -1,0 +1,5 @@
+prefect
+pandas
+prefect-sqlalchemy
+prefect-aws
+mysql-connector-python
